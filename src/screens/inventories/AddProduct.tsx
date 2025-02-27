@@ -60,7 +60,7 @@ const AddProduct = () => {
 	const getData = async () => {
 		setIsLoading(true);
 		try {
-			await getSuppliers();
+			// await getSuppliers();
 			await getCategories();
 		} catch (error: any) {
 			message.error(error.message);
@@ -136,26 +136,24 @@ const AddProduct = () => {
 		}
 	};
 
-	const getSuppliers = async () => {
-		const api = `/supplier`;
-		const res = await handleAPI(api);
+	// const getSuppliers = async () => {
+	// 	const api = `/supplier`;
+	// 	const res = await handleAPI(api);
 
-		const data = res.data.items;
-		const options = data.map((item: any) => ({
-			value: item._id,
-			label: item.name,
-		}));
+	// 	const data = res.data.items;
+	// 	const options = data.map((item: any) => ({
+	// 		value: item._id,
+	// 		label: item.name,
+	// 	}));
 
-		setSupplierOptions(options);
-	};
+	// 	setSupplierOptions(options);
+	// };
 
 	const getCategories = async () => {
-		const res = await handleAPI(`/products/get-categories`);
+		const res = await handleAPI(`/admin/v1/category`);
 		const datas = res.data;
-
-		const data = datas.length > 0 ? getTreeValues(datas, true) : [];
-
-		setCategories(data);
+		setCategories(getTreeValues(datas));
+		console.log(categories);
 	};
 
 	const handleChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {

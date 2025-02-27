@@ -45,14 +45,14 @@ const Suppliers = () => {
 	};
 
 	const getFroms = async () => {
-		const api = `/supplier/get-form`;
+		const api = `/admin/v1/supplier`;
 		const res = await handleAPI(api);
 
 		res.data && setForms(res.data);
 	};
 
 	const getSuppliers = async () => {
-		const api = `/supplier?page=${page}&pageSize=${pageSize}`;
+		const api = `/admin/v1/supplier?page=${page}&pageSize=${pageSize}`;
 		setIsLoading(true);
 		try {
 			const res = await handleAPI(api);

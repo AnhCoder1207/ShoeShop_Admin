@@ -28,7 +28,8 @@ export interface SelectModel {
 }
 
 export interface TreeModel {
-	label: string;
-	value: string;
-	children?: SelectModel[];
+	id: string;
+	name: string;
+	children?: TreeModel[]; // Đệ quy đúng cấu trúc cây
 }
+

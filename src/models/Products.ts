@@ -16,6 +16,8 @@ export interface ProductModel {
 	shortDescription: string;
 	longDescription: string;
 	images: any[];
+	status: string;
+	isDeleted: boolean;
 	inventories: inventoriesModel[];
 }	
 

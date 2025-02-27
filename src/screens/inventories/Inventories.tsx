@@ -208,6 +208,32 @@ const Inventories = () => {
 			  ),
 			width: 300,
 		  },	
+		//  trang thai ACTIVE: Hien Thi, else
+		{
+			key: 'status',
+			dataIndex: 'status',
+			title: 'Status',
+			render: (value: string) => (
+			  <Tag color={value === 'ACTIVE' ? 'green' : 'red'}>
+				{value === 'ACTIVE' ? 'Active' : 'Inactive'}
+			  </Tag>
+			),
+			width: 150,
+		  },
+		  
+		  {
+			key: 'isDeleted',
+			dataIndex: 'isDeleted',
+			title: 'Deleted',
+			render: (value: boolean) => (
+			  <Tag color={!value ? 'green' : 'red'}>
+				{!value ? 'No' : 'Yes'}
+			  </Tag>
+			),
+			width: 150,
+		  },
+		  
+
 	//Color
 	// {
 	// 	key: 'color',

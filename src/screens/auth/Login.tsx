@@ -30,9 +30,7 @@ const Login = () => {
 	const handleLogin = async (values: { email: string; password: string }) => {
 		setIsLoading(true);
 		try {
-			const res: any = await handleAPI('/public/v1/user/login', {
-				data: values
-			} , 'post');
+			const res: any = await handleAPI('/public/v1/user/login', values , 'post');
 
 			message.success(res.message);
 			res.data && dispatch(addAuth(res.data));
